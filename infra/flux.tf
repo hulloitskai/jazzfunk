@@ -30,24 +30,27 @@ resource "github_repository_deploy_key" "flux" {
 }
 
 resource "github_repository_file" "flux_install" {
-  repository = data.github_repository.flux.name
-  file       = "cluster/apps/flux-system/gotk-components.yaml"
-  content    = data.flux_install.flux.content
-  branch     = "main"
+  repository          = data.github_repository.flux.name
+  file                = "cluster/apps/flux-system/gotk-components.yaml"
+  content             = data.flux_install.flux.content
+  branch              = "main"
+  overwrite_on_create = true
 }
 
 resource "github_repository_file" "flux_sync" {
-  repository = data.github_repository.flux.name
-  file       = "cluster/apps/flux-system/gotk-sync.yaml"
-  content    = data.flux_sync.flux.content
-  branch     = "main"
+  repository          = data.github_repository.flux.name
+  file                = "cluster/apps/flux-system/gotk-sync.yaml"
+  content             = data.flux_sync.flux.content
+  branch              = "main"
+  overwrite_on_create = true
 }
 
 resource "github_repository_file" "kustomize" {
-  repository = data.github_repository.flux.name
-  file       = "cluster/apps/flux-system/kustomization.yaml"
-  content    = data.flux_sync.flux.kustomize_content
-  branch     = "main"
+  repository          = data.github_repository.flux.name
+  file                = "cluster/apps/flux-system/kustomization.yaml"
+  content             = data.flux_sync.flux.kustomize_content
+  branch              = "main"
+  overwrite_on_create = true
 }
 
 resource "kubernetes_namespace" "flux_system" {
