@@ -12,7 +12,7 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: charts
+    - name: systems
   path: cluster/apps
   prune: true
   validation: client

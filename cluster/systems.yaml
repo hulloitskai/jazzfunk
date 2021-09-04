@@ -4,14 +4,14 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 
 metadata:
-  name: charts
+  name: systems
   namespace: flux-system
 
 spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: cluster/charts
-  prune: true
+  path: cluster/systems
+  prune: false
   validation: client
   interval: 10m0s

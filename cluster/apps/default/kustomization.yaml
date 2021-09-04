@@ -6,5 +6,3 @@ kind: Kustomization
 namespace: default
 resources:
   - traefik.helmrelease.yaml
-  - traefik.imagerepo.yaml
-  - traefik.imagepolicy.yaml

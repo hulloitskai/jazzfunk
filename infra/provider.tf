@@ -15,26 +15,6 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "~> 2.0"
     }
-
-    kubectl = {
-      source  = "gavinbunney/kubectl"
-      version = "~> 1.10"
-    }
-
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
-    }
-
-    tls = {
-      source  = "hashicorp/tls"
-      version = "~> 3.1"
-    }
-
-    flux = {
-      source  = "fluxcd/flux"
-      version = "~> 0.3"
-    }
   }
 }
 
@@ -58,7 +38,3 @@ provider "kubernetes" {
     local.cluster_config.cluster_ca_certificate
   )
 }
-
-provider "kubectl" {}
-provider "flux" {}
-

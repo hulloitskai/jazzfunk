@@ -19,8 +19,8 @@ spec:
   interval: 1h0m0s
   values:
     image:
-      repository: traefik # { "$imagepolicy": "default:traefik:name" }
-      tag: v2.5 # { "$imagepolicy": "default:traefik:tag" }
+      repository: traefik # {"$imagepolicy": "flux-system:default-traefik:name"}
+      tag: v2.5 # {"$imagepolicy": "flux-system:default-traefik:tag"}
     logs:
       general:
         level: INFO
