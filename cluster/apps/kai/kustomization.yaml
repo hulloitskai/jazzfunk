@@ -3,8 +3,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: kai
 resources:
-  - default
-  - flux-system
-  - cert-manager
-  - kai
+  - namespace.yaml
+  - itskai-me.cert.yaml

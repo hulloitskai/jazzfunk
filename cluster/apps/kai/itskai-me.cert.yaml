@@ -1,0 +1,18 @@
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+
+metadata:
+  name: itskai-me
+  namespace: kai
+
+spec:
+  commonName: itskai.me
+  secretName: tls-itskai-me
+  dnsNames:
+    - itskai.me
+    - "*.itskai.me"
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
