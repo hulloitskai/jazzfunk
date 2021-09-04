@@ -1,0 +1,29 @@
+---
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+
+metadata:
+  name: cert-manager
+
+spec:
+  releaseName: cert-manager
+  chart:
+    spec:
+      chart: cert-manager
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: flux-system
+      version: 1.5.3
+  interval: 1h0m0s
+  values:
+    image:
+      repository: quay.io/jetstack/cert-manager-controller
+      tag: v1.5.3
+    installCRDs: true
+    global:
+      leaderElection:
+        namespace: cert-manager
+    prometheus:
+      enabled: false
