@@ -45,7 +45,7 @@ resource "github_repository_file" "flux_sync" {
 
 resource "github_repository_file" "kustomize" {
   repository = data.github_repository.flux.name
-  file       = "cluster/apps/flux-system/kustomize.yaml"
+  file       = "cluster/apps/flux-system/kustomization.yaml"
   content    = data.flux_sync.flux.kustomize_content
   branch     = "main"
 }

@@ -16,4 +16,4 @@ spec:
   path: cluster/apps
   prune: true
   validation: client
-  interval: 10m0s
+  interval: 2m0s

@@ -15,13 +15,35 @@ spec:
         kind: HelmRepository
         name: traefik
         namespace: flux-system
-      version: "5.6.14"
+      version: "10.3.2"
   interval: 1h0m0s
-  install:
-    remediation:
-      retries: 3
-  # Default values
-  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
   values:
+    image:
+      repository: traefik
+      tag: v2.5
+    logs:
+      general:
+        level: INFO
+    ports:
+      web:
+        hostPort: 80
+      websecure:
+        hostPort: 443
+        tls:
+          enabled: true
+    additionalArguments:
+    - --certificatesresolvers.letsencrypt.acme.email=hulloitskai@gmail.com
+    - --certificatesresolvers.letsencrypt.acme.storage=/data/acme.json
+    - --certificatesresolvers.letsencrypt.acme.tlschallenge
+    - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
     service:
-      type: NodePort
+      type: ClusterIP
+    nodeSelector:
+      role: ingress
+    resources:
+      requests:
+        cpu: 100m
+        memory: 50Mi
+      limits:
+        cpu: 300m
+        memory: 150Mi
