@@ -32,6 +32,9 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: client
+  decryption:
+    provider: sops
+    secret: sops-gpg
 
 ---
 
