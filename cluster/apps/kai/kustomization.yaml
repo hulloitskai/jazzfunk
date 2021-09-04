@@ -7,3 +7,6 @@ namespace: kai
 resources:
   - namespace.yaml
   - itskai-me.cert.yaml
+  - hello.deploy.yaml
+  - hello.ingressroute.yaml
+  - hello.svc.yaml

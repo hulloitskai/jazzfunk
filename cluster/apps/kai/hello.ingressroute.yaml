@@ -1,0 +1,21 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: hello
+  namespace: kai
+  labels:
+    app: hello
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`itskai.me`)
+      kind: Rule
+      services:
+        - name: hello
+          port: 80
+  tls:
+    secretName: tls-itskai-me

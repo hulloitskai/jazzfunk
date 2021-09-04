@@ -31,11 +31,6 @@ spec:
         hostPort: 443
         tls:
           enabled: true
-    additionalArguments:
-      - --certificatesresolvers.letsencrypt.acme.email=hulloitskai@gmail.com
-      - --certificatesresolvers.letsencrypt.acme.storage=/data/acme.json
-      - --certificatesresolvers.letsencrypt.acme.tlschallenge
-      - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
     service:
       type: ClusterIP
     nodeSelector:
