@@ -8,3 +8,5 @@ resources:
   - namespace.yaml
   - cert-manager.helmrelease.yaml
   - cloudflare.secret.yaml
+  - letsencrypt-prod.clusterissuer.yaml
+  - letsencrypt-staging.clusterissuer.yaml
