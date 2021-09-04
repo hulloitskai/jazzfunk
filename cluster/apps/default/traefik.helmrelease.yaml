@@ -1,11 +1,7 @@
----
-
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
-
 metadata:
   name: traefik
-
 spec:
   releaseName: traefik
   chart:
@@ -20,7 +16,7 @@ spec:
   values:
     image:
       repository: traefik # {"$imagepolicy": "flux-system:default-traefik:name"}
-      tag: v2.5 # {"$imagepolicy": "flux-system:default-traefik:tag"}
+      tag: 2.5.2 # {"$imagepolicy": "flux-system:default-traefik:tag"}
     logs:
       general:
         level: INFO
@@ -32,10 +28,10 @@ spec:
         tls:
           enabled: true
     additionalArguments:
-    - --certificatesresolvers.letsencrypt.acme.email=hulloitskai@gmail.com
-    - --certificatesresolvers.letsencrypt.acme.storage=/data/acme.json
-    - --certificatesresolvers.letsencrypt.acme.tlschallenge
-    - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
+      - --certificatesresolvers.letsencrypt.acme.email=hulloitskai@gmail.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/data/acme.json
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
     service:
       type: ClusterIP
     nodeSelector:

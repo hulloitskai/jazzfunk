@@ -8,7 +8,7 @@ metadata:
 
 spec:
   imageRepositoryRef:
-    name: traefik
+    name: default-traefik
   policy:
     semver:
       range: 2.x
