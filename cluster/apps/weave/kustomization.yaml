@@ -8,3 +8,6 @@ resources:
   - manifests.yaml
   - itskai-me.cert.yaml
   - weave-scope-app.ingressroute.yaml
+patchesStrategicMerge:
+  - weave-scope-cluster-agent.deploy.yaml
+  - weave-scope-agent.daemonset.yaml

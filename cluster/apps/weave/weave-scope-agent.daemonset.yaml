@@ -1,0 +1,25 @@
+---
+
+apiVersion: apps/v1
+kind: DaemonSet
+
+metadata:
+  name: weave-scope-agent
+  namespace: weave
+
+spec:
+  template:
+    spec:
+      containers:
+        - name: scope-agent
+          args:
+            - --weave=false
+            - --mode=probe
+            - --probe-only
+            - --probe.kubernetes.role=host
+            - --probe.publish.interval=5000ms
+            - --probe.spy.interval=5s
+            - --probe.docker.bridge=docker0
+            - --probe.docker=true
+            - --probe.no-controls=true
+            - weave-scope-app.weave.svc.cluster.local:80
