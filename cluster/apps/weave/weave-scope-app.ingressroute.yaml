@@ -4,7 +4,11 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 
 metadata:
-  name: infra
+  name: weave-scope-app
+  labels:
+    app: weave-scope
+    weave-cloud-component: scope
+    weave-scope-component: app
 
 spec:
   entryPoints: ["websecure"]
@@ -13,7 +17,6 @@ spec:
       kind: Rule
       services:
         - name: weave-scope-app
-          namespace: weave
           port: 80
   tls:
-    secretName: tls-itskai-me
+    secretName: tls-infra-itskai-me

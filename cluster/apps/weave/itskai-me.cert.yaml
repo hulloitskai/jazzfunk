@@ -9,8 +9,7 @@ metadata:
 spec:
   secretName: tls-itskai-me
   dnsNames:
-    - itskai.me
-    - www.itskai.me
+    - infra.itskai.me
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

@@ -5,4 +5,6 @@ kind: Kustomization
 
 namespace: default
 resources:
+  - itskai-me.cert.yaml
   - traefik.helmrelease.yaml
+  - traefik-dashboard.ingressroute.yaml

@@ -6,3 +6,5 @@ kind: Kustomization
 namespace: weave
 resources:
   - manifests.yaml
+  - itskai-me.cert.yaml
+  - weave-scope-app.ingressroute.yaml

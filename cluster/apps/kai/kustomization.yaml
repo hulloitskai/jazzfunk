@@ -6,8 +6,6 @@ kind: Kustomization
 namespace: kai
 resources:
   - namespace.yaml
-  - infra.ingressroute.yaml
-  - routing.ingressroute.yaml
   - itskai-me.cert.yaml
   - home.configmap.yaml
   - home.secret.yaml
