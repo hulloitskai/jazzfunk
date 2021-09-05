@@ -1,0 +1,12 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+
+metadata:
+  name: kai-home-api
+
+spec:
+  image: hulloitskai/home-api
+  interval: 10m0s
+

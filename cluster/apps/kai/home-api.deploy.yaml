@@ -1,0 +1,53 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: home-api
+  labels:
+    app: home
+    component: api
+
+spec:
+  selector:
+    matchLabels:
+      app: home
+      component: api
+  template:
+    metadata:
+      labels:
+        app: home
+        component: api
+    spec:
+      containers:
+      - name: server
+        image: hulloitskai/home-api:main-cc2b6f0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3000
+        env:
+        - name: HOME_API_HOST
+          value: "0.0.0.0"
+        - name: HOME_API_PORT
+          value: "3000"
+        envFrom:
+        - configMapRef:
+            name: home
+        - secretRef:
+            name: home
+        readinessProbe: &probe
+          httpGet:
+            path: /
+            port: http
+        livenessProbe: *probe
+      initContainers:
+      - name: migrator
+        image: hulloitskai/home-migrator:main-cc2b6f0
+        envFrom:
+        - configMapRef:
+            name: home
+        - secretRef:
+            name: home
+

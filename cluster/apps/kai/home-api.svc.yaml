@@ -4,14 +4,15 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: hello
-  namespace: kai
+  name: home-api
   labels:
-    app: hello
+    app: home
+    component: api
 
 spec:
   selector:
-    app: hello
+    app: home
+    component: api
   ports:
     - name: http
       port: 80
