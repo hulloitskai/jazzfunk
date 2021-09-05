@@ -11,4 +11,4 @@ spec:
     name: kai-home-web
   policy:
     semver:
-      range: 0.x
+      range: 0.x-x
