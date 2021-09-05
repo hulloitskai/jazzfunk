@@ -7,5 +7,11 @@ namespace: flux-system
 resources:
 - jetstack.helmrepo.yaml
 - traefik.helmrepo.yaml
-- default-traefik.imagepolicy.yaml
 - default-traefik.imagerepo.yaml
+- default-traefik.imagepolicy.yaml
+- kai-home-api.imagerepo.yaml
+- kai-home-api.imagepolicy.yaml
+- kai-home-web.imagerepo.yaml
+- kai-home-web.imagepolicy.yaml
+- kai-home-migrator.imagerepo.yaml
+- kai-home-migrator.imagepolicy.yaml

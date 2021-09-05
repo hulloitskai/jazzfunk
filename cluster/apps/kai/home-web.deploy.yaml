@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: hulloitskai/home-web:main-cc2b6f0
+        image: hulloitskai/home-web:main-cc2b6f0 # {"$imagepolicy": "flux-system:kai-home-web"}
         imagePullPolicy: IfNotPresent
         envFrom:
         - configMapRef:
