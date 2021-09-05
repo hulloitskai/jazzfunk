@@ -1,14 +1,10 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: home-web
   labels:
     app: home
     component: web
-
 spec:
   selector:
     matchLabels:
@@ -21,19 +17,19 @@ spec:
         component: web
     spec:
       containers:
-      - name: server
-        image: hulloitskai/home-web:main-cc2b6f0 # {"$imagepolicy": "flux-system:kai-home-web"}
-        imagePullPolicy: IfNotPresent
-        envFrom:
-        - configMapRef:
-            name: home
-        - secretRef:
-            name: home
-        ports:
-        - name: http
-          containerPort: 8000
-        readinessProbe: &probe
-          httpGet:
-            path: /
-            port: http
-        livenessProbe: *probe
+        - name: server
+          image: hulloitskai/home-web:0.1.0 # {"$imagepolicy": "flux-system:kai-home-web"}
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: home
+            - secretRef:
+                name: home
+          ports:
+            - name: http
+              containerPort: 8000
+          readinessProbe: &probe
+            httpGet:
+              path: /
+              port: http
+          livenessProbe: *probe
