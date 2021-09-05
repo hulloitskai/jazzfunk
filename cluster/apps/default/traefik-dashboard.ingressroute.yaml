@@ -5,14 +5,13 @@ kind: IngressRoute
 
 metadata:
   name: traefik-dashboard
+  namespace: default
 
 spec:
-  entryPoints: ["websecure"]
+  entryPoints: ["traefik"]
   routes:
-    - match: Host(`routing.itskai.me`)
+    - match: Method(`GET`)
       kind: Rule
       services:
         - name: api@internal
           kind: TraefikService
-  tls:
-    secretName: tls-itskai-me
