@@ -1,0 +1,39 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: home-web
+  labels:
+    app: home
+    component: web
+
+spec:
+  selector:
+    matchLabels:
+      app: home
+      component: web
+  template:
+    metadata:
+      labels:
+        app: home
+        component: web
+    spec:
+      containers:
+      - name: server
+        image: hulloitskai/home-web:main-cc2b6f0
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: home
+        - secretRef:
+            name: home
+        ports:
+        - name: http
+          containerPort: 8000
+        readinessProbe: &probe
+          httpGet:
+            path: /
+            port: http
+        livenessProbe: *probe

@@ -7,8 +7,11 @@ namespace: kai
 resources:
   - namespace.yaml
   - itskai-me.cert.yaml
+  - home.configmap.yaml
+  - home.secret.yaml
   - home-api.deploy.yaml
   - home-api.ingressroute.yaml
   - home-api.svc.yaml
-  - home.configmap.yaml
-  - home.secret.yaml
+  - home-web.deploy.yaml
+  - home-web.ingressroute.yaml
+  - home-web.svc.yaml
