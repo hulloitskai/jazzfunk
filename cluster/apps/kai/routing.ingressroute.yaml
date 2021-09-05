@@ -1,0 +1,18 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: routing
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`routing.itskai.me`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+  tls:
+    secretName: tls-itskai-me
