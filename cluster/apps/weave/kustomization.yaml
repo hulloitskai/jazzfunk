@@ -11,3 +11,4 @@ resources:
 patchesStrategicMerge:
   - weave-scope-cluster-agent.deploy.yaml
   - weave-scope-agent.daemonset.yaml
+  - weave-scope-app.deploy.yaml
