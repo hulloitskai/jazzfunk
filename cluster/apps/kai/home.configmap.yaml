@@ -8,5 +8,6 @@ metadata:
 
 data:
   HOME_API_LOG: warn,home-api=debug
-  HOME_API_PUBLIC_URL: http://home-api
+  HOME_API_URL: http://home-api
+  HOME_API_PUBLIC_URL: https://itskai.me/api
   HOME_WEB_PUBLIC_URL: https://itskai.me

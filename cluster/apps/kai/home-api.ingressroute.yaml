@@ -12,20 +12,27 @@ metadata:
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: Host(`itskai.me`) && PathPrefix(`/api/`)
+    - match: Host(`itskai.me`) && Path(`/api`)
       kind: Rule
       services:
         - name: home-api
           port: 80
       middlewares:
-        - name: home-api-strip-prefix
-    - match: Host(`itskai.me`) && Path(`/api`)
+        - name: home-api-root
+    - match: Host(`itskai.me`) && Path(`/api/`)
       kind: Rule
       services:
         - name: noop@internal
           kind: TraefikService
       middlewares:
         - name: home-api-redirect
+    - match: Host(`itskai.me`) && !Path(`/api/`) && PathPrefix(`/api/`)
+      kind: Rule
+      services:
+        - name: home-api
+          port: 80
+      middlewares:
+        - name: home-api-strip-prefix
   tls:
     secretName: tls-itskai-me
 
@@ -38,12 +45,27 @@ metadata:
   name: home-api-redirect
   labels:
     app: home
-    version: api
+    component: api
 
 spec:
   redirectRegex:
-    regex: ^https://itskai.me/api$
-    replacement: https://itskai.me/api/
+    regex: ^https://itskai.me/api/$
+    replacement: https://itskai.me/api
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: home-api-root
+  labels:
+    app: home
+    component: api
+
+spec:
+  replacePath:
+    path: /
 
 ---
 
@@ -54,7 +76,7 @@ metadata:
   name: home-api-strip-prefix
   labels:
     app: home
-    version: api
+    component: api
 
 spec:
   stripPrefix:
