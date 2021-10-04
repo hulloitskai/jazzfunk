@@ -33,6 +33,9 @@ spec:
                 name: home
             - secretRef:
                 name: home
+          volumeMounts:
+            - name: icloud
+              mountPath: /icloud
           readinessProbe: &probe
             httpGet:
               path: /
@@ -46,3 +49,8 @@ spec:
                 name: home
             - secretRef:
                 name: home
+      volumes:
+        - name: icloud
+          persistentVolumeClaim:
+            claimName: icloud
+

@@ -11,3 +11,4 @@ data:
   HOME_API_URL: http://home-api
   HOME_API_PUBLIC_URL: https://itskai.me/api
   HOME_WEB_PUBLIC_URL: https://itskai.me
+  OBSIDIAN_VAULT_PATH: /icloud/Obsidian/Kai
