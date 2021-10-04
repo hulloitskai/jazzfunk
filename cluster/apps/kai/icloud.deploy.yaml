@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: icloud
+  labels:
+    app: icloud
+
+spec:
+  serviceName: icloud
+  selector:
+    matchLabels:
+      app: icloud
+  template:
+    metadata:
+      labels:
+        app: icloud
+    spec:
+      containers:
+      - name: client
+        image: mandarons/icloud-drive:1.5.0
+        imagePullPolicy: IfNotPresent
+        command: ["sh", "-c"]
+        args: ["HTTPS_PROXY='' pip install pysocks; python -u ./src/main.py"]
+        envFrom:
+        - secretRef:
+            name: icloud-env
+        volumeMounts:
+        - name: keyring
+          mountPath: /root/.local/share/python_keyring
+        - name: config
+          readOnly: true
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+        - name: drive
+          mountPath: /app/drive
+      volumes:
+        - name: config
+          secret:
+            secretName: icloud-config
+        - name: drive
+          persistentVolumeClaim:
+            claimName: icloud
+  volumeClaimTemplates:
+  - metadata:
+      name: keyring
+      labels:
+        app: icloud
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: do-block-storage
+      resources:
+        requests:
+          storage: 1Gi

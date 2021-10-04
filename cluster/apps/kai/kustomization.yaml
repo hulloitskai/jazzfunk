@@ -7,6 +7,11 @@ namespace: kai
 resources:
   - namespace.yaml
   - itskai-me.cert.yaml
+  - icloud.volume.yaml
+  - icloud.svc.yaml
+  - icloud-env.secret.yaml
+  - icloud-config.secret.yaml
+  - icloud.deploy.yaml
   - home.configmap.yaml
   - home.secret.yaml
   - home-api.deploy.yaml

@@ -1,0 +1,17 @@
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: icloud
+  labels:
+    app: icloud
+
+spec:
+  selector:
+    app: icloud
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

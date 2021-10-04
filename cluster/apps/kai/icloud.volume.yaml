@@ -1,0 +1,14 @@
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+
+metadata:
+  name: icloud
+
+spec:
+  storageClassName: do-block-storage
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 1Gi
