@@ -26,8 +26,12 @@ spec:
         - secretRef:
             name: icloud-env
         volumeMounts:
-        - name: keyring
+        - name: shared
           mountPath: /root/.local/share/python_keyring
+          subPath: keyring
+        - name: shared
+          mountPath: /tmp
+          subPath: cookies
         - name: config
           readOnly: true
           mountPath: /app/config.yaml
@@ -43,7 +47,7 @@ spec:
             claimName: icloud
   volumeClaimTemplates:
   - metadata:
-      name: keyring
+      name: shared
       labels:
         app: icloud
     spec:
