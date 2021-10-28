@@ -1,0 +1,21 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: justchat-web
+  labels:
+    app: justchat
+    component: web
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`justchat.itskai.me`)
+      kind: Rule
+      services:
+        - name: justchat-web
+          port: 80
+  tls:
+    secretName: tls-itskai-me

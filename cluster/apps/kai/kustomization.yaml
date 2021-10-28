@@ -25,3 +25,6 @@ resources:
   - justchat-api.deploy.yaml
   - justchat-api.ingressroute.yaml
   - justchat-api.svc.yaml
+  - justchat-web.deploy.yaml
+  - justchat-web.ingressroute.yaml
+  - justchat-web.svc.yaml
