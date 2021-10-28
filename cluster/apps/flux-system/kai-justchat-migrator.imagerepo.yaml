@@ -1,0 +1,12 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+
+metadata:
+  name: kai-justchat-migrator
+
+spec:
+  image: ghcr.io/hulloitskai/justchat-migrator
+  interval: 10m0s
+

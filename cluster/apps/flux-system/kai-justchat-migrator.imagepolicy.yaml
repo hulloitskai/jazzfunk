@@ -1,0 +1,14 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+
+metadata:
+  name: kai-justchat-migrator
+
+spec:
+  imageRepositoryRef:
+    name: kai-justchat-migrator
+  policy:
+    semver:
+      range: 0.x-x

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: justchat-api
+  labels:
+    app: justchat
+    component: api
+spec:
+  selector:
+    matchLabels:
+      app: justchat
+      component: api
+  template:
+    metadata:
+      labels:
+        app: justchat
+        component: api
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/hulloitskai/justchat-api:0.1.0 # {"$imagepolicy": "flux-system:kai-justchat-api"}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: JUSTCHAT_API_HOST
+              value: "0.0.0.0"
+            - name: JUSTCHAT_API_PORT
+              value: "3000"
+          envFrom:
+            - configMapRef:
+                name: justchat
+            - secretRef:
+                name: justchat
+          volumeMounts:
+            - name: icloud
+              mountPath: /icloud
+          readinessProbe: &probe
+            httpGet:
+              path: /
+              port: http
+          livenessProbe: *probe
+      initContainers:
+        - name: migrator
+          image: ghcr.io/hulloitskai/justchat-migrator:0.1.0 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
+          envFrom:
+            - configMapRef:
+                name: justchat
+            - secretRef:
+                name: justchat
+      volumes:
+        - name: icloud
+          persistentVolumeClaim:
+            claimName: icloud

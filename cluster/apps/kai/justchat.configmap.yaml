@@ -1,0 +1,14 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: justchat
+
+data:
+  JUSTCHAT_API_LOG: warn,justchat-api=debug
+  JUSTCHAT_API_URL: http://justchat-api
+  JUSTCHAT_API_PUBLIC_URL: https://justchat.itskai.me/api
+  JUSTCHAT_WEB_URL: http://justchat-web
+  JUSTCHAT_WEB_PUBLIC_URL: https://justchat.itskai.me

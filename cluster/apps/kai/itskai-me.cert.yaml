@@ -11,6 +11,7 @@ spec:
   dnsNames:
     - itskai.me
     - www.itskai.me
+    - justchat.itskai.me
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

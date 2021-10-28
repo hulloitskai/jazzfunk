@@ -15,3 +15,5 @@ resources:
 - kai-home-web.imagepolicy.yaml
 - kai-home-migrator.imagerepo.yaml
 - kai-home-migrator.imagepolicy.yaml
+- kai-justchat-api.imagerepo.yaml
+- kai-justchat-api.imagepolicy.yaml

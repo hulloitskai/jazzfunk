@@ -1,0 +1,84 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: justchat-api
+  labels:
+    app: justchat
+    component: api
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`justchat.itskai.me`) && Path(`/api`)
+      kind: Rule
+      services:
+        - name: justchat-api
+          port: 80
+      middlewares:
+        - name: justchat-api-root
+    - match: Host(`justchat.itskai.me`) && Path(`/api/`)
+      kind: Rule
+      services:
+        - name: noop@internal
+          kind: TraefikService
+      middlewares:
+        - name: justchat-api-redirect
+    - match: Host(`justchat.itskai.me`) && !Path(`/api/`) && PathPrefix(`/api/`)
+      kind: Rule
+      services:
+        - name: justchat-api
+          port: 80
+      middlewares:
+        - name: justchat-api-strip-prefix
+  tls:
+    secretName: tls-itskai-me
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: justchat-api-redirect
+  labels:
+    app: justchat
+    component: api
+
+spec:
+  redirectRegex:
+    regex: ^https://justchat.itskai.me/api/$
+    replacement: https://justchat.itskai.me/api
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: justchat-api-root
+  labels:
+    app: justchat
+    component: api
+
+spec:
+  replacePath:
+    path: /
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: justchat-api-strip-prefix
+  labels:
+    app: justchat
+    component: api
+
+spec:
+  stripPrefix:
+    prefixes:
+      - /api
