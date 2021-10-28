@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: traefik # {"$imagepolicy": "flux-system:default-traefik:name"}
-      tag: 2.5.3 # {"$imagepolicy": "flux-system:default-traefik:tag"}
+      tag: 2.5.4 # {"$imagepolicy": "flux-system:default-traefik:tag"}
     additionalArguments:
       - --entrypoints.web.http.redirections.entryPoint.to=:443
       - --entrypoints.web.http.redirections.entryPoint.permanent=false
