@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/hulloitskai/justchat-api:0.1.27 # {"$imagepolicy": "flux-system:kai-justchat-api"}
+          image: ghcr.io/hulloitskai/justchat-api:0.1.28 # {"$imagepolicy": "flux-system:kai-justchat-api"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
@@ -43,7 +43,7 @@ spec:
           livenessProbe: *probe
       initContainers:
         - name: migrator
-          image: ghcr.io/hulloitskai/justchat-migrator:0.1.27 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
+          image: ghcr.io/hulloitskai/justchat-migrator:0.1.28 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
           envFrom:
             - configMapRef:
                 name: justchat
