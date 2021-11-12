@@ -7,8 +7,11 @@ metadata:
   name: home
 
 data:
-  HOME_API_LOG: warn,home-api=debug
+  HOME_API_LOG: warn,home_api=debug
   HOME_API_URL: http://home-api
   HOME_API_PUBLIC_URL: https://itskai.me/api
+  HOME_WEB_URL: http://home-web
   HOME_WEB_PUBLIC_URL: https://itskai.me
+  AUTH0_DOMAIN: itskai.us.auth0.com
+  AUTH0_CLIENT_ID: nh9q0VAc3AHCT7FQ7jcywRnfeiROEQyN
   OBSIDIAN_VAULT_PATH: /icloud/Obsidian/Kai

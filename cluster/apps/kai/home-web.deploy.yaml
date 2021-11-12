@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: hulloitskai/home-web:0.6.1 # {"$imagepolicy": "flux-system:kai-home-web"}
+          image: hulloitskai/home-web:0.6.6 # {"$imagepolicy": "flux-system:kai-home-web"}
           imagePullPolicy: IfNotPresent
           env:
             - name: HOME_WEB_HOST

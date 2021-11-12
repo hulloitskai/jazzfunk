@@ -43,7 +43,7 @@ spec:
           livenessProbe: *probe
       initContainers:
         - name: migrator
-          image: ghcr.io/hulloitskai/justchat-migrator:0.1.28 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
+          image: ghcr.io/hulloitskai/justchat-migrator:0.1.29 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
           envFrom:
             - configMapRef:
                 name: justchat
