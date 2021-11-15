@@ -24,9 +24,9 @@ spec:
             - name: http
               containerPort: 3000
           env:
-            - name: HOME_API_HOST
+            - name: API_HOST
               value: "0.0.0.0"
-            - name: HOME_API_PORT
+            - name: API_PORT
               value: "3000"
           envFrom:
             - configMapRef:

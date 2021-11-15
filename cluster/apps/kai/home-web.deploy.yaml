@@ -21,9 +21,9 @@ spec:
           image: hulloitskai/home-web:0.6.13 # {"$imagepolicy": "flux-system:kai-home-web"}
           imagePullPolicy: IfNotPresent
           env:
-            - name: HOME_WEB_HOST
+            - name: WEB_HOST
               value: "0.0.0.0"
-            - name: HOME_WEB_PORT
+            - name: WEB_PORT
               value: "8000"
           envFrom:
             - configMapRef:
