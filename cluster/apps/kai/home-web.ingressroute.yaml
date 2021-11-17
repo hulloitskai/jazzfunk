@@ -12,12 +12,7 @@ metadata:
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: Host(`itskai.me`)
-      kind: Rule
-      services:
-        - name: home-web
-          port: 80
-    - match: Host(`itskai.me`) && PathPrefix(`/api/auth/`)
+    - match: Host(`itskai.me`) && (!PathPrefix(`/api/`) || PathPrefix(`/api/auth/`))
       kind: Rule
       services:
         - name: home-web
