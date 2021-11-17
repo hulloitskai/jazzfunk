@@ -35,6 +35,6 @@ spec:
               containerPort: 8000
           readinessProbe: &probe
             httpGet:
-              path: /
+              path: /api/health
               port: http
           livenessProbe: *probe

@@ -38,7 +38,7 @@ spec:
               mountPath: /icloud
           readinessProbe: &probe
             httpGet:
-              path: /
+              path: /health
               port: http
           livenessProbe: *probe
       initContainers:
