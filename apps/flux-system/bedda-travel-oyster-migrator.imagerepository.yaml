@@ -8,5 +8,7 @@ metadata:
 
 spec:
   image: bedda-travel/oyster-migrator
+  secretRef:
+    name: docker-tugolo
   interval: 10m0s
 

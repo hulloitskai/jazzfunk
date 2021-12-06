@@ -5,6 +5,7 @@ kind: Kustomization
 
 namespace: flux-system
 resources:
+- docker-tugolo.secret.yaml
 - default-traefik.imagerepository.yaml
 - default-traefik.imagepolicy.yaml
 - kai-home-api.imagerepository.yaml
