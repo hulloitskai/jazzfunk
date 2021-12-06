@@ -17,5 +17,29 @@ spec:
       services:
         - name: home-web
           port: 80
+    - match: Host(`www.itskai.me`)
+      kind: Rule
+      services:
+        - name: noop@internal
+          kind: TraefikService
+      middlewares:
+        - name: home-web-redirect
   tls:
     secretName: tls-itskai-me
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: home-web-redirect
+  labels:
+    app: home
+    component: web
+
+spec:
+  redirectRegex:
+    regex: ^https://www.itskai.me/(.*)$
+    replacement: https://itskai.me/$1
+

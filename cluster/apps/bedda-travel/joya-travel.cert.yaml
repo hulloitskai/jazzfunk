@@ -1,0 +1,16 @@
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+
+metadata:
+  name: joya-travel
+
+spec:
+  secretName: tls-joya-travel
+  dnsNames:
+    - joya.travel
+    - www.joya.travel
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

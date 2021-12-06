@@ -1,0 +1,10 @@
+---
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: bedda-travel
+resources:
+  - namespace.yaml
+  - bedda-travel.cert.yaml
+  - joya-travel.cert.yaml
