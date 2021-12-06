@@ -11,4 +11,4 @@ spec:
     name: bedda-travel-imgproxy
   policy:
     semver:
-      range: 3.x
+      range: 2.x
