@@ -1,11 +1,7 @@
----
-
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
-
 metadata:
   name: imgproxy
-
 spec:
   releaseName: imgproxy
   chart:
@@ -24,7 +20,7 @@ spec:
     fullnameOverride: imgproxy
     image:
       repo: darthsim/imgproxy # {"$imagepolicy": "flux-system:bedda-travel-imgproxy:name"}
-      tag: v3.0.0.beta2 # {"$imagepolicy": "flux-system:bedda-travel-imgproxy:tag"}
+      tag: v2.17.0 # {"$imagepolicy": "flux-system:bedda-travel-imgproxy:tag"}
     features:
       urlSignature:
         enabled: false
