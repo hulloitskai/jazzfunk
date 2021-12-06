@@ -1,0 +1,61 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: oyster-api
+  labels:
+    app: oyster
+    component: api
+
+spec:
+  selector:
+    matchLabels:
+      app: oyster
+      component: api
+  template:
+    metadata:
+      labels:
+        app: oyster
+        component: api
+    spec:
+      imagePullSecrets:
+      - name: docker-tugolo
+      containers:
+      - name: server
+        image: tugolo/oyster-api:main-c7059fe
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: OYSTER_API_HOST
+          value: "0.0.0.0"
+        - name: OYSTER_API_PORT
+          value: "3000"
+        envFrom:
+        - configMapRef:
+            name: oyster
+        - secretRef:
+            name: oyster
+        ports:
+        - name: http
+          containerPort: 3000
+        readinessProbe: &probe
+          httpGet:
+            path: /
+            port: http
+        livenessProbe: *probe
+        resources:
+          requests:
+            cpu: 10m
+            memory: 20Mi
+          limits:
+            cpu: 150m
+            memory: 150Mi
+      initContainers:
+      - name: migrator
+        image: tugolo/oyster-migrator:main-c7059fe
+        envFrom:
+        - configMapRef:
+            name: oyster
+        - secretRef:
+            name: oyster

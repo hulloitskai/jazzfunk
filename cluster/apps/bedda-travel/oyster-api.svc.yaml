@@ -1,0 +1,19 @@
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: oyster-api
+  labels:
+    app: oyster
+    component: api
+
+spec:
+  selector:
+    app: oyster
+    component: api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

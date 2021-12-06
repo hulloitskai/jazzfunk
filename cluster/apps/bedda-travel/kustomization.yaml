@@ -8,3 +8,10 @@ resources:
   - namespace.yaml
   - bedda-travel.cert.yaml
   - joya-travel.cert.yaml
+  - docker-tugolo.secret.yaml
+  - oyster.configmap.yaml
+  - oyster.secret.yaml
+  - oyster-api.deploy.yaml
+  - oyster-api.svc.yaml
+  - oyster-web.deploy.yaml
+  - oyster-web.svc.yaml

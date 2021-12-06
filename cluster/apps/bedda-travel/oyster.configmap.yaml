@@ -1,0 +1,26 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: oyster
+  labels:
+    app: oyster
+
+data:
+  OYSTER_API_LOG: warn,oyster=debug
+  OYSTER_API_URL: http://oyster-api
+  OYSTER_API_PUBLIC_URL: https://bedda.travel/api
+  OYSTER_WEB_URL: http://oyster-web
+  OYSTER_WEB_PUBLIC_URL: https://bedda.travel
+  AWS_ACCESS_KEY_ID: AKIA267OA7D6Y4QHXNTB
+  AWS_REGION: us-east-2
+  AWS_BUCKET: community-travel-co-oyster-production
+  FIREBASE_PROJECT_ID: oyster-7fe93
+  IMGPROXY_PUBLIC_URL: https://images.bedda.travel
+  MONGO_DATABASE: oyster
+  AUTH0_DOMAIN: communitytravel.us.auth0.com
+  SMTP_DOMAIN: smtp.mailgun.org
+  SMTP_USERNAME: oyster@mg.communitytravel.co
+  CHATENGINE_PROJECT_ID: d045e52c-ce9d-4595-b96b-bdabb2a52142
