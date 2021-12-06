@@ -19,3 +19,9 @@ resources:
 - kai-justchat-migrator.imagepolicy.yaml
 - kai-justchat-web.imagerepo.yaml
 - kai-justchat-web.imagepolicy.yaml
+- bedda-travel-oyster-api.imagerepo.yaml
+- bedda-travel-oyster-api.imagepolicy.yaml
+- bedda-travel-oyster-web.imagerepo.yaml
+- bedda-travel-oyster-web.imagepolicy.yaml
+- bedda-travel-oyster-migrator.imagerepo.yaml
+- bedda-travel-oyster-migrator.imagepolicy.yaml

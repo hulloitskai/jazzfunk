@@ -1,0 +1,12 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+
+metadata:
+  name: bedda-travel-oyster-migrator
+
+spec:
+  image: bedda-travel/oyster-migrator
+  interval: 10m0s
+

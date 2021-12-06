@@ -16,7 +16,7 @@ spec:
         name: imgproxy
         namespace: flux-system
       version: 0.8.8
-  interval: 30m0s
+  interval: 10m0s
   valuesFrom:
     - kind: Secret
       name: imgproxy-release

@@ -1,0 +1,14 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+
+metadata:
+  name: bedda-travel-oyster-migrator
+
+spec:
+  imageRepositoryRef:
+    name: bedda-travel-oyster-migrator
+  policy:
+    semver:
+      range: 0.x-x
