@@ -28,3 +28,5 @@ resources:
 - bedda-travel-oyster-web.imagepolicy.yaml
 - bedda-travel-oyster-migrator.imagerepository.yaml
 - bedda-travel-oyster-migrator.imagepolicy.yaml
+- bedda-travel-pilot.imagerepository.yaml
+- bedda-travel-pilot.imagepolicy.yaml

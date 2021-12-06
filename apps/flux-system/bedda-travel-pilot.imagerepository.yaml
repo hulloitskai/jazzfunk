@@ -4,10 +4,10 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 
 metadata:
-  name: bedda-travel-oyster-api
+  name: bedda-travel-pilot
 
 spec:
-  image: bedda-travel/oyster-api
+  image: tugolo/pilot
   secretRef:
     name: docker-tugolo
   interval: 10m0s

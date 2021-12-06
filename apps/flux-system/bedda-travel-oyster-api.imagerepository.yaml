@@ -7,7 +7,7 @@ metadata:
   name: bedda-travel-oyster-api
 
 spec:
-  image: bedda-travel/oyster-api
+  image: tugolo/oyster-api
   secretRef:
     name: docker-tugolo
   interval: 10m0s
