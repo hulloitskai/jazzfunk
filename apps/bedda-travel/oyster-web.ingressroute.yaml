@@ -1,0 +1,86 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: oyster-web
+  labels:
+    app: oyster
+    component: web
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`bedda.travel`) && !PathPrefix(`/api/`)
+      kind: Rule
+      services:
+        - name: oyster-web
+          port: 80
+    - match: Host(`www.bedda.travel`)
+      kind: Rule
+      services:
+        - name: noop@internal
+          kind: TraefikService
+      middlewares:
+        - name: oyster-web-redirect
+  tls:
+    secretName: tls-bedda-travel
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: oyster-web-joya
+  labels:
+    app: oyster
+    component: web
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`joya.travel`) || Host(`www.joya.travel`)
+      kind: Rule
+      services:
+        - name: noop@internal
+          kind: TraefikService
+      middlewares:
+        - name: oyster-web-joya-redirect
+  tls:
+    secretName: tls-joya-travel
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: oyster-web-redirect
+  labels:
+    app: oyster
+    component: web
+
+spec:
+  redirectRegex:
+    regex: ^https:\/\/www.bedda.travel\/(.*)$
+    replacement: https://bedda.travel/$1
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: oyster-web-joya-redirect
+  labels:
+    app: oyster
+    component: web
+
+spec:
+  redirectRegex:
+    regex: ^https:\/\/(www\.)?joya\.travel\/(.*)$
+    replacement: https://$1bedda.travel/$2
+
+

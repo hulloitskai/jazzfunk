@@ -4,30 +4,30 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 
 metadata:
-  name: home-api
+  name: oyster-api
   labels:
-    app: home
+    app: oyster
     component: api
 
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: Host(`itskai.me`) && (Path(`/api`) || Path(`/api/graphql`) || PathPrefix(`/api/hooks/`))
+    - match: Host(`bedda.travel`) && (Path(`/api`) || Path(`/api/graphql`))
       kind: Rule
       services:
-        - name: home-api
+        - name: oyster-api
           port: 80
       middlewares:
-        - name: home-api-strip-prefix
-    - match: Host(`itskai.me`) && Path(`/api/`)
+        - name: oyster-api-strip-prefix
+    - match: Host(`bedda.travel`) && Path(`/api/`)
       kind: Rule
       services:
         - name: noop@internal
           kind: TraefikService
       middlewares:
-        - name: home-api-redirect
+        - name: oyster-api-redirect
   tls:
-    secretName: tls-itskai-me
+    secretName: tls-bedda-travel
 
 ---
 
@@ -35,15 +35,15 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 
 metadata:
-  name: home-api-redirect
+  name: oyster-api-redirect
   labels:
-    app: home
+    app: oyster
     component: api
 
 spec:
   redirectRegex:
-    regex: ^https://itskai.me/api/$
-    replacement: https://itskai.me/api
+    regex: ^https:\/\/bedda\.travel\/api\/$
+    replacement: https://bedda.travel/api
 
 ---
 
@@ -51,9 +51,9 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 
 metadata:
-  name: home-api-strip-prefix
+  name: oyster-api-strip-prefix
   labels:
-    app: home
+    app: oyster
     component: api
 
 spec:

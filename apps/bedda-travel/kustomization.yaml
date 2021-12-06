@@ -13,5 +13,8 @@ resources:
   - oyster.secret.yaml
   - oyster-api.deploy.yaml
   - oyster-api.svc.yaml
+  - oyster-api.ingressroute.yaml
   - oyster-web.deploy.yaml
   - oyster-web.svc.yaml
+  - oyster-web.ingressroute.yaml
+

@@ -34,9 +34,10 @@ _The configuration and state of my personal computing cluster, `jazzfunk`._
     flux bootstrap github \
       --owner=hulloitskai \
       --repository=jazzfunk \
-      --path=cluster \
       --components-extra=image-reflector-controller,image-automation-controller \
       --read-write-key \
       --reconcile \
-      --personal
+      --personal \
+      --path=system \
+      --interval=1m
     ```

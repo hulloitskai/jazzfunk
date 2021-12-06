@@ -5,8 +5,6 @@ kind: Kustomization
 
 namespace: flux-system
 resources:
-- jetstack.helmrepo.yaml
-- traefik.helmrepo.yaml
 - default-traefik.imagerepo.yaml
 - default-traefik.imagepolicy.yaml
 - kai-home-api.imagerepo.yaml

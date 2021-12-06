@@ -5,16 +5,17 @@ kind: Kustomization
 
 metadata:
   name: apps
-  namespace: flux-system
 
 spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: cluster/apps
+  dependsOn:
+    - name: flux-system
+  path: ./apps
   prune: true
   validation: client
-  interval: 2m0s
+  interval: 1m0s
   decryption:
     provider: sops
     secretRef:
