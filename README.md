@@ -35,7 +35,7 @@ _The configuration and state of my personal computing cluster, `jazzfunk`._
       --owner=hulloitskai \
       --repository=jazzfunk \
       --path=cluster \
-      --components-extra=image-reflector-controller,image-automation-controller
+      --components-extra=image-reflector-controller,image-automation-controller \
       --read-write-key \
       --reconcile \
       --personal
