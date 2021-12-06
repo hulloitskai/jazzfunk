@@ -16,7 +16,7 @@ spec:
         name: jetstack
         namespace: flux-system
       version: 1.5.3
-  interval: 1h0m0s
+  interval: 30m0s
   values:
     image:
       repository: quay.io/jetstack/cert-manager-controller

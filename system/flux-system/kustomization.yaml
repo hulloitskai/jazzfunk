@@ -6,5 +6,6 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - jetstack.helmrepo.yaml
+- imgproxy.helmrepo.yaml
 - traefik.helmrepo.yaml
 - apps.kustomization.yaml
