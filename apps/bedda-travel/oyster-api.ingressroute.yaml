@@ -27,7 +27,7 @@ spec:
       middlewares:
         - name: oyster-api-redirect
   tls:
-    secretName: tls-bedda-travel
+    secretName: bedda-travel-tls
 
 ---
 

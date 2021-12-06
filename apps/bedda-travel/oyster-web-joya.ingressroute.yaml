@@ -20,7 +20,7 @@ spec:
       middlewares:
         - name: oyster-web-joya-redirect
   tls:
-    secretName: tls-joya-travel
+    secretName: joya-travel-tls
 
 ---
 

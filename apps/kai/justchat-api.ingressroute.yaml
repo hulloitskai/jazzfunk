@@ -34,7 +34,7 @@ spec:
       middlewares:
         - name: justchat-api-strip-prefix
   tls:
-    secretName: tls-itskai-me
+    secretName: itskai-me-tls
 
 ---
 

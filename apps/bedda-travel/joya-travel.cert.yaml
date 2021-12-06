@@ -7,7 +7,7 @@ metadata:
   name: joya-travel
 
 spec:
-  secretName: tls-joya-travel
+  secretName: joya-travel-tls
   dnsNames:
     - joya.travel
     - www.joya.travel

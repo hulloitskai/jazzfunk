@@ -25,7 +25,7 @@ spec:
       middlewares:
         - name: home-web-redirect
   tls:
-    secretName: tls-itskai-me
+    secretName: itskai-me-tls
 
 ---
 
