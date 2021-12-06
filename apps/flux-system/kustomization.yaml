@@ -5,23 +5,25 @@ kind: Kustomization
 
 namespace: flux-system
 resources:
-- default-traefik.imagerepo.yaml
+- default-traefik.imagerepository.yaml
 - default-traefik.imagepolicy.yaml
-- kai-home-api.imagerepo.yaml
+- kai-home-api.imagerepository.yaml
 - kai-home-api.imagepolicy.yaml
-- kai-home-web.imagerepo.yaml
+- kai-home-web.imagerepository.yaml
 - kai-home-web.imagepolicy.yaml
-- kai-home-migrator.imagerepo.yaml
+- kai-home-migrator.imagerepository.yaml
 - kai-home-migrator.imagepolicy.yaml
-- kai-justchat-api.imagerepo.yaml
+- kai-justchat-api.imagerepository.yaml
 - kai-justchat-api.imagepolicy.yaml
-- kai-justchat-migrator.imagerepo.yaml
+- kai-justchat-migrator.imagerepository.yaml
 - kai-justchat-migrator.imagepolicy.yaml
-- kai-justchat-web.imagerepo.yaml
+- kai-justchat-web.imagerepository.yaml
 - kai-justchat-web.imagepolicy.yaml
-- bedda-travel-oyster-api.imagerepo.yaml
+- bedda-travel-imgproxy.imagerepository.yaml
+- bedda-travel-imgproxy.imagepolicy.yaml
+- bedda-travel-oyster-api.imagerepository.yaml
 - bedda-travel-oyster-api.imagepolicy.yaml
-- bedda-travel-oyster-web.imagerepo.yaml
+- bedda-travel-oyster-web.imagerepository.yaml
 - bedda-travel-oyster-web.imagepolicy.yaml
-- bedda-travel-oyster-migrator.imagerepo.yaml
+- bedda-travel-oyster-migrator.imagerepository.yaml
 - bedda-travel-oyster-migrator.imagepolicy.yaml

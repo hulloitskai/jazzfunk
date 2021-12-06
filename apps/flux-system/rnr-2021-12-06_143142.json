@@ -1,0 +1,49 @@
+{
+  "date": "2021-12-06 14:31:42",
+  "operations": [
+    {
+      "source": "kai-justchat-api.imagerepo.yaml",
+      "target": "kai-justchat-api.imagerepository.yaml"
+    },
+    {
+      "source": "kai-justchat-migrator.imagerepo.yaml",
+      "target": "kai-justchat-migrator.imagerepository.yaml"
+    },
+    {
+      "source": "bedda-travel-oyster-web.imagerepo.yaml",
+      "target": "bedda-travel-oyster-web.imagerepository.yaml"
+    },
+    {
+      "source": "kai-home-api.imagerepo.yaml",
+      "target": "kai-home-api.imagerepository.yaml"
+    },
+    {
+      "source": "bedda-travel-oyster-migrator.imagerepo.yaml",
+      "target": "bedda-travel-oyster-migrator.imagerepository.yaml"
+    },
+    {
+      "source": "kai-justchat-web.imagerepo.yaml",
+      "target": "kai-justchat-web.imagerepository.yaml"
+    },
+    {
+      "source": "bedda-travel-oyster-api.imagerepo.yaml",
+      "target": "bedda-travel-oyster-api.imagerepository.yaml"
+    },
+    {
+      "source": "kai-home-migrator.imagerepo.yaml",
+      "target": "kai-home-migrator.imagerepository.yaml"
+    },
+    {
+      "source": "kai-home-web.imagerepo.yaml",
+      "target": "kai-home-web.imagerepository.yaml"
+    },
+    {
+      "source": "default-traefik.imagerepo.yaml",
+      "target": "default-traefik.imagerepository.yaml"
+    },
+    {
+      "source": "bedda-travel-imgproxy.imagerepo.yaml",
+      "target": "bedda-travel-imgproxy.imagerepository.yaml"
+    }
+  ]
+}
