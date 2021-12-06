@@ -1,0 +1,58 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pilot
+  namespace: default
+  labels:
+    app: pilot
+
+spec:
+  selector:
+    matchLabels:
+      app: pilot
+  template:
+    metadata:
+      labels:
+        app: pilot
+    spec:
+      imagePullSecrets:
+      - name: docker-tugolo
+      containers:
+      - name: server
+        image: tugolo/pilot:master-2595810
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: pilot
+        - secretRef:
+            name: pilot
+        ports:
+        - name: http
+          containerPort: 80
+        # readinessProbe: &probe
+        #   initialDelaySeconds: 5
+        #   httpGet:
+        #     path: /healthz
+        #     port: http
+        # livenessProbe: *probe
+        # resources:
+        #   requests:
+        #     cpu: 5m
+        #     memory: 15Mi
+        #   limits:
+        #     cpu: 350m
+        #     memory: 250Mi
+      initContainers:
+      - name: migrator
+        image: tugolo/pilot:master-2595810
+        imagePullPolicy: IfNotPresent
+        args: ["db:migrate"]
+        envFrom:
+        - configMapRef:
+            name: pilot
+        - secretRef:
+            name: pilot
+

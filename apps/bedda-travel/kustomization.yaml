@@ -21,4 +21,8 @@ resources:
   - oyster-web.svc.yaml
   - oyster-web.ingressroute.yaml
   - oyster-web-joya.ingressroute.yaml
-
+  - pilot.configmap.yaml
+  - pilot.secret.yaml
+  - pilot.deploy.yaml
+  - pilot.svc.yaml
+  - pilot.ingressroute.yaml

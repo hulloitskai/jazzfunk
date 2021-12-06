@@ -1,0 +1,20 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: pilot
+  labels:
+    app: pilot
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`api.book.bedda.travel`)
+      kind: Rule
+      services:
+        - name: pilot
+          port: 80
+  tls:
+    secretName: tls-bedda-travel

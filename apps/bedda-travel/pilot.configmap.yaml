@@ -1,0 +1,20 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: pilot
+  labels:
+    app: pilot
+
+data:
+  PILOT_ENV: production
+  PILOT_LOG: debug
+  PILOT_PORT: "80"
+  PILOT_CORS_ORIGIN: "*"
+  PILOT_PUBLIC_URL: https://book.bedda.travel
+  PILOT_DATABASE_MAX_CONNECTIONS: "4"
+  PILOT_AUTH0_DOMAIN: communitytravel.us.auth0.com
+  OYSTER_API_PUBLIC_URL: http://oyster-api
+
