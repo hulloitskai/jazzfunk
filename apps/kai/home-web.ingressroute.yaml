@@ -41,5 +41,5 @@ metadata:
 spec:
   redirectRegex:
     regex: ^https:\/\/www\.itskai\.me\/(.*)$
-    replacement: https://itskai.me/$1
+    replacement: https://itskai.me/${1}
 

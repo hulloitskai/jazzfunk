@@ -20,4 +20,5 @@ resources:
   - oyster-web.deploy.yaml
   - oyster-web.svc.yaml
   - oyster-web.ingressroute.yaml
+  - oyster-web-joya.ingressroute.yaml
 

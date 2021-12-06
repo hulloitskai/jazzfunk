@@ -4,7 +4,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 
 metadata:
-  name: oyster-web
+  name: oyster-web-joya
   labels:
     app: oyster
     component: web
@@ -12,20 +12,15 @@ metadata:
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: Host(`bedda.travel`) && !PathPrefix(`/api/`)
-      kind: Rule
-      services:
-        - name: oyster-web
-          port: 80
-    - match: Host(`www.bedda.travel`)
+    - match: Host(`joya.travel`) || Host(`www.joya.travel`)
       kind: Rule
       services:
         - name: noop@internal
           kind: TraefikService
       middlewares:
-        - name: oyster-web-redirect
+        - name: oyster-web-joya-redirect
   tls:
-    secretName: tls-bedda-travel
+    secretName: tls-joya-travel
 
 ---
 
@@ -33,12 +28,13 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 
 metadata:
-  name: oyster-web-redirect
+  name: oyster-web-joya-redirect
   labels:
     app: oyster
     component: web
 
 spec:
   redirectRegex:
-    regex: ^https:\/\/www.bedda.travel\/(.*)$
-    replacement: https://bedda.travel/${1}
+    regex: ^https:\/\/(www\.)?joya\.travel\/(.*)$
+    replacement: https://${1}bedda.travel/${2}
+
