@@ -19,4 +19,4 @@ spec:
         - name: weave-scope-app
           port: 80
   tls:
-    secretName: tls-infra-itskai-me
+    secretName: itskai-me-tls
