@@ -1,0 +1,40 @@
+---
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+
+metadata:
+  name: imgproxy
+
+spec:
+  releaseName: imgproxy
+  chart:
+    spec:
+      chart: imgproxy
+      sourceRef:
+        kind: HelmRepository
+        name: imgproxy
+        namespace: flux-system
+      version: 0.8.8
+  interval: 30m0s
+  valuesFrom:
+    - kind: Secret
+      name: imgproxy-release
+  values:
+    fullnameOverride: imgproxy
+    image:
+      repo: darthsim/imgproxy # {"$imagepolicy": "bedda-travel:imgproxy:name"}
+      tag: v3.0.0.beta2 # {"$imagepolicy": "bedda-travel:imgproxy:tag"}
+    features:
+      urlSignature:
+        enabled: false
+        key: ""
+        salt: ""
+      security:
+        allowOrigin: https://bedda.travel
+        allowedSources: s3://community-travel-co-oyster-production
+        maxSrcResolution: "20"
+      aws:
+        enabled: true
+        accessKeyId: AKIA267OA7D6Y4QHXNTB
+        s3Region: us-east-2

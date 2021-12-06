@@ -1,0 +1,12 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+
+metadata:
+  name: imgproxy
+
+spec:
+  image: darthsim/imgproxy
+  interval: 10m0s
+

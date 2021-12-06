@@ -8,6 +8,11 @@ resources:
   - namespace.yaml
   - bedda-travel.cert.yaml
   - joya-travel.cert.yaml
+  - imgproxy.imagerepo.yaml
+  - imgproxy.imagepolicy.yaml
+  - imgproxy-release.secret.yaml
+  - imgproxy.hr.yaml
+  - imgproxy.ingressroute.yaml
   - docker-tugolo.secret.yaml
   - oyster.configmap.yaml
   - oyster.secret.yaml

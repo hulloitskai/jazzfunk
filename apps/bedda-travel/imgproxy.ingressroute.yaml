@@ -1,0 +1,20 @@
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: imgproxy
+  labels:
+    app: imgproxy
+
+spec:
+  entryPoints: ["websecure"]
+  routes:
+    - match: Host(`images.bedda.travel`)
+      kind: Rule
+      services:
+        - name: imgproxy
+          port: 80
+  tls:
+    secretName: tls-bedda-travel
