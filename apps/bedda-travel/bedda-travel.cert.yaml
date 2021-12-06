@@ -11,6 +11,7 @@ spec:
   dnsNames:
     - bedda.travel
     - www.bedda.travel
+    - images.bedda.travel
     - api.book.bedda.travel
   issuerRef:
     name: letsencrypt-prod
