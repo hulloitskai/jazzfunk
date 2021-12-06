@@ -5,6 +5,7 @@ namespace: flux-system
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
+- flux-system.imageupdateautomation.yaml
 - jetstack.helmrepo.yaml
 - imgproxy.helmrepo.yaml
 - traefik.helmrepo.yaml

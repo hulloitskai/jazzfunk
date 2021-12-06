@@ -4,11 +4,11 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 
 metadata:
-  name: imgproxy
+  name: bedda-travel-imgproxy
 
 spec:
   imageRepositoryRef:
-    name: imgproxy
+    name: bedda-travel-imgproxy
   policy:
     semver:
-      range: 3.x-x
+      range: 3.x
