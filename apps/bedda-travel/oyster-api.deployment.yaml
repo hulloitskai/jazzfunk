@@ -20,7 +20,7 @@ spec:
         - name: docker-tugolo
       containers:
         - name: server
-          image: tugolo/oyster-api:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-oyster-api"}
+          image: tugolo/oyster-api:0.1.5 # {"$imagepolicy": "flux-system:bedda-travel-oyster-api"}
           imagePullPolicy: IfNotPresent
           env:
             - name: OYSTER_API_HOST
@@ -49,7 +49,7 @@ spec:
               memory: 150Mi
       initContainers:
         - name: migrator
-          image: tugolo/oyster-migrator:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
+          image: tugolo/oyster-migrator:0.1.5 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
           envFrom:
             - configMapRef:
                 name: oyster
