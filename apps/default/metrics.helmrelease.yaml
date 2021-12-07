@@ -1,0 +1,20 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metrics
+spec:
+  releaseName: metrics
+  chart:
+    spec:
+      chart: metrics-server
+      sourceRef:
+        kind: HelmRepository
+        name: metrics-server
+        namespace: flux-system
+      version: 3.7.0
+  interval: 10m0s
+  values:
+    fullnameOverride: metrics
+    image:
+      repo: k8s.gcr.io/metrics-server/metrics-server # {"$imagepolicy": "flux-system:default-metrics:name"}
+      tag: 0.5.2 # {"$imagepolicy": "flux-system:default-metrics:tag"}

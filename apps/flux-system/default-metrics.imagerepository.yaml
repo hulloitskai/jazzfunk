@@ -1,0 +1,12 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+
+metadata:
+  name: default-metrics
+
+spec:
+  image: k8s.gcr.io/metrics-server/metrics-server
+  interval: 10m0s
+

@@ -7,3 +7,4 @@ namespace: default
 resources:
   - itskai-me.certificate.yaml
   - traefik-dashboard.ingressroute.yaml
+  - metrics.helmrelease.yaml

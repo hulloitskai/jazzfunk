@@ -1,0 +1,14 @@
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+
+metadata:
+  name: default-metrics
+
+spec:
+  imageRepositoryRef:
+    name: default-metrics
+  policy:
+    semver:
+      range: 0.x.x

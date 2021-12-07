@@ -8,6 +8,8 @@ resources:
 - docker-tugolo.secret.yaml
 - default-traefik.imagerepository.yaml
 - default-traefik.imagepolicy.yaml
+- default-metrics.imagerepository.yaml
+- default-metrics.imagepolicy.yaml
 - kai-home-api.imagerepository.yaml
 - kai-home-api.imagepolicy.yaml
 - kai-home-web.imagerepository.yaml
