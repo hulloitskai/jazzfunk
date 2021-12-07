@@ -6,9 +6,9 @@ kind: Kustomization
 namespace: weave
 resources:
   - manifests.yaml
-  - itskai-me.cert.yaml
+  - itskai-me.certificate.yaml
   - weave-scope-app.ingressroute.yaml
 patchesStrategicMerge:
-  - weave-scope-cluster-agent.deploy.yaml
+  - weave-scope-cluster-agent.deployment.yaml
   - weave-scope-agent.daemonset.yaml
-  - weave-scope-app.deploy.yaml
+  - weave-scope-app.deployment.yaml

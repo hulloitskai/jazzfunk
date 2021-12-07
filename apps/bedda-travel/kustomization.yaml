@@ -6,23 +6,23 @@ kind: Kustomization
 namespace: bedda-travel
 resources:
   - namespace.yaml
-  - bedda-travel.cert.yaml
-  - joya-travel.cert.yaml
+  - bedda-travel.certificate.yaml
+  - joya-travel.certificate.yaml
   - imgproxy-release.secret.yaml
-  - imgproxy.hr.yaml
+  - imgproxy.helmrelease.yaml
   - imgproxy.ingressroute.yaml
   - docker-tugolo.secret.yaml
   - oyster.configmap.yaml
   - oyster.secret.yaml
-  - oyster-api.deploy.yaml
-  - oyster-api.svc.yaml
+  - oyster-api.deployment.yaml
+  - oyster-api.service.yaml
   - oyster-api.ingressroute.yaml
-  - oyster-web.deploy.yaml
-  - oyster-web.svc.yaml
+  - oyster-web.deployment.yaml
+  - oyster-web.service.yaml
   - oyster-web.ingressroute.yaml
   - oyster-web-joya.ingressroute.yaml
   - pilot.configmap.yaml
   - pilot.secret.yaml
-  - pilot.deploy.yaml
-  - pilot.svc.yaml
+  - pilot.deployment.yaml
+  - pilot.service.yaml
   - pilot.ingressroute.yaml

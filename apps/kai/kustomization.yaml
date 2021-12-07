@@ -6,25 +6,25 @@ kind: Kustomization
 namespace: kai
 resources:
   - namespace.yaml
-  - itskai-me.cert.yaml
+  - itskai-me.certificate.yaml
   - icloud.volume.yaml
-  - icloud.svc.yaml
+  - icloud.service.yaml
   - icloud-env.secret.yaml
   - icloud-config.secret.yaml
-  - icloud.deploy.yaml
+  - icloud.deployment.yaml
   - home.configmap.yaml
   - home.secret.yaml
-  - home-api.deploy.yaml
+  - home-api.deployment.yaml
   - home-api.ingressroute.yaml
-  - home-api.svc.yaml
-  - home-web.deploy.yaml
+  - home-api.service.yaml
+  - home-web.deployment.yaml
   - home-web.ingressroute.yaml
-  - home-web.svc.yaml
+  - home-web.service.yaml
   - justchat.configmap.yaml
   - justchat.secret.yaml
-  - justchat-api.deploy.yaml
+  - justchat-api.deployment.yaml
   - justchat-api.ingressroute.yaml
-  - justchat-api.svc.yaml
-  - justchat-web.deploy.yaml
+  - justchat-api.service.yaml
+  - justchat-web.deployment.yaml
   - justchat-web.ingressroute.yaml
-  - justchat-web.svc.yaml
+  - justchat-web.service.yaml
