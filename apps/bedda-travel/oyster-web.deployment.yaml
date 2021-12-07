@@ -1,14 +1,10 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: oyster-web
   labels:
     app: oyster
     component: web
-
 spec:
   selector:
     matchLabels:
@@ -21,28 +17,28 @@ spec:
         component: web
     spec:
       imagePullSecrets:
-      - name: docker-tugolo
+        - name: docker-tugolo
       containers:
-      - name: server
-        image: tugolo/oyster-web:main-c7059fe # {"$imagepolicy": "flux-system:bedda-travel-oyster-web"}
-        imagePullPolicy: IfNotPresent
-        envFrom:
-        - configMapRef:
-            name: oyster
-        - secretRef:
-            name: oyster
-        ports:
-        - name: http
-          containerPort: 8000
-        readinessProbe: &probe
-          httpGet:
-            path: /
-            port: http
-        livenessProbe: *probe
-        resources:
-          requests:
-            cpu: 10m
-            memory: 100Mi
-          limits:
-            cpu: 275m
-            memory: 750Mi
+        - name: server
+          image: tugolo/oyster-web:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-oyster-web"}
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: oyster
+            - secretRef:
+                name: oyster
+          ports:
+            - name: http
+              containerPort: 8000
+          readinessProbe: &probe
+            httpGet:
+              path: /
+              port: http
+          livenessProbe: *probe
+          resources:
+            requests:
+              cpu: 10m
+              memory: 100Mi
+            limits:
+              cpu: 275m
+              memory: 750Mi

@@ -1,14 +1,10 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: pilot
   namespace: default
   labels:
     app: pilot
-
 spec:
   selector:
     matchLabels:
@@ -19,40 +15,39 @@ spec:
         app: pilot
     spec:
       imagePullSecrets:
-      - name: docker-tugolo
+        - name: docker-tugolo
       containers:
-      - name: server
-        image: tugolo/pilot:master-2595810 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
-        imagePullPolicy: IfNotPresent
-        envFrom:
-        - configMapRef:
-            name: pilot
-        - secretRef:
-            name: pilot
-        ports:
-        - name: http
-          containerPort: 80
-        # readinessProbe: &probe
-        #   initialDelaySeconds: 5
-        #   httpGet:
-        #     path: /healthz
-        #     port: http
-        # livenessProbe: *probe
-        # resources:
-        #   requests:
-        #     cpu: 5m
-        #     memory: 15Mi
-        #   limits:
-        #     cpu: 350m
-        #     memory: 250Mi
+        - name: server
+          image: tugolo/pilot:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: pilot
+            - secretRef:
+                name: pilot
+          ports:
+            - name: http
+              containerPort: 80
+              # readinessProbe: &probe
+              #   initialDelaySeconds: 5
+              #   httpGet:
+              #     path: /healthz
+              #     port: http
+              # livenessProbe: *probe
+              # resources:
+              #   requests:
+              #     cpu: 5m
+              #     memory: 15Mi
+              #   limits:
+              #     cpu: 350m
+              #     memory: 250Mi
       initContainers:
-      - name: migrator
-        image: tugolo/pilot:master-2595810 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
-        imagePullPolicy: IfNotPresent
-        args: ["db:migrate"]
-        envFrom:
-        - configMapRef:
-            name: pilot
-        - secretRef:
-            name: pilot
-
+        - name: migrator
+          image: tugolo/pilot:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
+          imagePullPolicy: IfNotPresent
+          args: ["db:migrate"]
+          envFrom:
+            - configMapRef:
+                name: pilot
+            - secretRef:
+                name: pilot

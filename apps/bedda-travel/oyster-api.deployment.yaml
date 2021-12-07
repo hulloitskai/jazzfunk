@@ -1,14 +1,10 @@
----
-
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: oyster-api
   labels:
     app: oyster
     component: api
-
 spec:
   selector:
     matchLabels:
@@ -21,41 +17,41 @@ spec:
         component: api
     spec:
       imagePullSecrets:
-      - name: docker-tugolo
+        - name: docker-tugolo
       containers:
-      - name: server
-        image: tugolo/oyster-api:main-c7059fe # {"$imagepolicy": "flux-system:bedda-travel-oyster-api"}
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: OYSTER_API_HOST
-          value: "0.0.0.0"
-        - name: OYSTER_API_PORT
-          value: "3000"
-        envFrom:
-        - configMapRef:
-            name: oyster
-        - secretRef:
-            name: oyster
-        ports:
-        - name: http
-          containerPort: 3000
-        readinessProbe: &probe
-          httpGet:
-            path: /
-            port: http
-        livenessProbe: *probe
-        resources:
-          requests:
-            cpu: 10m
-            memory: 20Mi
-          limits:
-            cpu: 150m
-            memory: 150Mi
+        - name: server
+          image: tugolo/oyster-api:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-oyster-api"}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: OYSTER_API_HOST
+              value: "0.0.0.0"
+            - name: OYSTER_API_PORT
+              value: "3000"
+          envFrom:
+            - configMapRef:
+                name: oyster
+            - secretRef:
+                name: oyster
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe: &probe
+            httpGet:
+              path: /
+              port: http
+          livenessProbe: *probe
+          resources:
+            requests:
+              cpu: 10m
+              memory: 20Mi
+            limits:
+              cpu: 150m
+              memory: 150Mi
       initContainers:
-      - name: migrator
-        image: tugolo/oyster-migrator:main-c7059fe # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
-        envFrom:
-        - configMapRef:
-            name: oyster
-        - secretRef:
-            name: oyster
+        - name: migrator
+          image: tugolo/oyster-migrator:0.1.0 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
+          envFrom:
+            - configMapRef:
+                name: oyster
+            - secretRef:
+                name: oyster
