@@ -44,6 +44,7 @@ spec:
       initContainers:
         - name: migrator
           image: hulloitskai/home-migrator:0.8.9 # {"$imagepolicy": "flux-system:kai-home-migrator"}
+          imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
                 name: home

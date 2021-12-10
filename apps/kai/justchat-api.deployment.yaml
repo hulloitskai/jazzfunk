@@ -44,6 +44,7 @@ spec:
       initContainers:
         - name: migrator
           image: ghcr.io/hulloitskai/justchat-migrator:0.1.29 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
+          imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
                 name: justchat
