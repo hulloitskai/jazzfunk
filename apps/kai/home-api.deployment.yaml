@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: hulloitskai/home-api:0.8.9 # {"$imagepolicy": "flux-system:kai-home-api"}
+          image: ghcr.io/hulloitskai/home-api:0.8.11 # {"$imagepolicy": "flux-system:kai-home-api"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
@@ -43,7 +43,7 @@ spec:
           livenessProbe: *probe
       initContainers:
         - name: migrator
-          image: hulloitskai/home-migrator:0.8.9 # {"$imagepolicy": "flux-system:kai-home-migrator"}
+          image: ghcr.io/hulloitskai/home-migrator:0.8.12 # {"$imagepolicy": "flux-system:kai-home-migrator"}
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
