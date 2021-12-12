@@ -7,6 +7,6 @@ metadata:
   name: kai-home-migrator
 
 spec:
-  image: hulloitskai/home-migrator
+  image: ghcr.io/hulloitskai/home-migrator
   interval: 10m0s
 

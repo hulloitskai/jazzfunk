@@ -7,6 +7,6 @@ metadata:
   name: kai-home-web
 
 spec:
-  image: hulloitskai/home-web
+  image: ghcr.io/hulloitskai/home-web
   interval: 10m0s
 

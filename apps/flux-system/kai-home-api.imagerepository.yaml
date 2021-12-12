@@ -7,6 +7,6 @@ metadata:
   name: kai-home-api
 
 spec:
-  image: hulloitskai/home-api
+  image: ghcr.io/hulloitskai/home-api
   interval: 10m0s
 
