@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/hulloitskai/home-api:0.8.11 # {"$imagepolicy": "flux-system:kai-home-api"}
+          image: ghcr.io/hulloitskai/home-api:0.8.12 # {"$imagepolicy": "flux-system:kai-home-api"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
