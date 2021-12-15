@@ -18,7 +18,7 @@ spec:
         - name: docker-tugolo
       containers:
         - name: server
-          image: tugolo/pilot:0.1.3 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
+          image: tugolo/pilot:0.1.4 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
@@ -43,7 +43,7 @@ spec:
               #     memory: 250Mi
       initContainers:
         - name: migrator
-          image: tugolo/pilot:0.1.3 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
+          image: tugolo/pilot:0.1.4 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
           imagePullPolicy: IfNotPresent
           args: ["db:migrate"]
           envFrom:
