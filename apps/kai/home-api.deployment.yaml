@@ -30,9 +30,9 @@ spec:
               value: "3000"
           envFrom:
             - configMapRef:
-                name: home
+                name: home-api
             - secretRef:
-                name: home
+                name: home-api
           volumeMounts:
             - name: icloud
               mountPath: /icloud
@@ -47,9 +47,9 @@ spec:
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
-                name: home
+                name: home-api
             - secretRef:
-                name: home
+                name: home-api
       volumes:
         - name: icloud
           persistentVolumeClaim:

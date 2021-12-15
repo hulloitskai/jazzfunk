@@ -12,11 +12,13 @@ resources:
   - icloud-env.secret.yaml
   - icloud-config.secret.yaml
   - icloud.deployment.yaml
-  - home.configmap.yaml
-  - home.secret.yaml
+  - home-api.configmap.yaml
+  - home-api.secret.yaml
   - home-api.deployment.yaml
   - home-api.ingressroute.yaml
   - home-api.service.yaml
+  - home-web.configmap.yaml
+  - home-web.secret.yaml
   - home-web.deployment.yaml
   - home-web.ingressroute.yaml
   - home-web.service.yaml

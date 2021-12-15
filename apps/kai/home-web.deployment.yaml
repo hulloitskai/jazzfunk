@@ -27,9 +27,9 @@ spec:
               value: "8000"
           envFrom:
             - configMapRef:
-                name: home
+                name: home-web
             - secretRef:
-                name: home
+                name: home-web
           ports:
             - name: http
               containerPort: 8000
