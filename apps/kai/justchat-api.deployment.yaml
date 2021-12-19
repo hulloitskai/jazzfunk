@@ -19,7 +19,7 @@ spec:
       containers:
         - name: server
           image: ghcr.io/hulloitskai/justchat-api:0.1.28 # {"$imagepolicy": "flux-system:kai-justchat-api"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 3000
@@ -44,7 +44,7 @@ spec:
       initContainers:
         - name: migrator
           image: ghcr.io/hulloitskai/justchat-migrator:0.1.29 # {"$imagepolicy": "flux-system:kai-justchat-migrator"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: justchat

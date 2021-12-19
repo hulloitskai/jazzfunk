@@ -19,7 +19,7 @@ spec:
       containers:
         - name: server
           image: ghcr.io/hulloitskai/home-api:0.8.12 # {"$imagepolicy": "flux-system:kai-home-api"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 3000
@@ -44,7 +44,7 @@ spec:
       initContainers:
         - name: migrator
           image: ghcr.io/hulloitskai/home-migrator:0.8.12 # {"$imagepolicy": "flux-system:kai-home-migrator"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: home-api

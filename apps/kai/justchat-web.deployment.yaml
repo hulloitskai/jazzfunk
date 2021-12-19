@@ -19,7 +19,7 @@ spec:
       containers:
         - name: server
           image: ghcr.io/hulloitskai/justchat-web:0.1.28 # {"$imagepolicy": "flux-system:kai-justchat-web"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: JUSTCHAT_WEB_HOST
               value: "0.0.0.0"

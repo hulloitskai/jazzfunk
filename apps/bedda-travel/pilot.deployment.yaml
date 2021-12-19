@@ -19,7 +19,7 @@ spec:
       containers:
         - name: server
           image: tugolo/pilot:0.1.4 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: pilot
@@ -44,7 +44,7 @@ spec:
       initContainers:
         - name: migrator
           image: tugolo/pilot:0.1.4 # {"$imagepolicy": "flux-system:bedda-travel-pilot"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           args: ["db:migrate"]
           envFrom:
             - configMapRef:
