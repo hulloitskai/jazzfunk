@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pilot
-  namespace: default
   labels:
     app: pilot
 spec:

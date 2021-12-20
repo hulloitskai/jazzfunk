@@ -1,0 +1,45 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: actions-runner
+  labels:
+    app: actions-runner
+
+spec:
+  selector:
+    matchLabels:
+      app: actions-runner
+  template:
+    metadata:
+      labels:
+        app: actions-runner
+    spec:
+      imagePullSecrets:
+        - name: docker-tugolo
+      containers:
+        - name: runner
+          image: myoung34/github-runner
+          imagePullPolicy: Always
+          env:
+            - name: RUNNER_WORKDIR
+              value: /tmp/bedda-travel/actions-runner/workdir
+          envFrom:
+            - configMapRef:
+                name: actions-runner
+            - secretRef:
+                name: actions-runner
+          volumeMounts:
+            - name: docker
+              mountPath: /var/run/docker.sock
+            - name: workdir
+              mountPath: /tmp/bedda-travel/actions-runner/workdir
+      volumes:
+        - name: docker
+          hostPath:
+            path: /var/run/docker.sock
+        - name: workdir
+          hostPath:
+            path: /tmp/bedda-travel/actions-runner/workdir

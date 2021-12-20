@@ -1,0 +1,15 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: actions-runner
+  labels:
+    app: actions-runner
+
+data:
+  ORG_NAME: beddatravel
+  RUNNER_NAME_PREFIX: jazzfunk
+  RUNNER_SCOPE: org
+  LABELS: ubuntu-latest

@@ -11,6 +11,9 @@ resources:
   - imgproxy-release.secret.yaml
   - imgproxy.helmrelease.yaml
   - imgproxy.ingressroute.yaml
+  - actions-runner.configmap.yaml
+  - actions-runner.secret.yaml
+  - actions-runner.deployment.yaml
   - docker-tugolo.secret.yaml
   - oyster.configmap.yaml
   - oyster.secret.yaml
