@@ -12,7 +12,7 @@ metadata:
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: Host(`bedda.travel`) && (Path(`/api`) || Path(`/api/graphql`))
+    - match: Host(`bedda.travel`) && (Path(`/api`) || Path(`/api/graphql`) || Path(`/api/hooks/stream`))
       kind: Rule
       services:
         - name: oyster-api
