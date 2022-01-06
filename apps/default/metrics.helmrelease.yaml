@@ -17,4 +17,4 @@ spec:
     fullnameOverride: metrics
     image:
       repo: k8s.gcr.io/metrics-server/metrics-server # {"$imagepolicy": "flux-system:default-metrics:name"}
-      tag: v0.5.2 # {"$imagepolicy": "flux-system:default-metrics:tag"}
+      tag: v0.6.0 # {"$imagepolicy": "flux-system:default-metrics:tag"}
