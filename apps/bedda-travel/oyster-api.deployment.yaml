@@ -46,7 +46,7 @@ spec:
               memory: 20Mi
             limits:
               cpu: 150m
-              memory: 150Mi
+              memory: 1500Mi
       initContainers:
         - name: migrator
           image: tugolo/oyster-migrator:0.1.30 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
