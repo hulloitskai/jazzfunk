@@ -19,6 +19,7 @@ spec:
           port: 80
       middlewares:
         - name: oyster-api-strip-prefix
+        - name: oyster-api-headers
     - match: Host(`bedda.travel`) && Path(`/api/`)
       kind: Rule
       services:
@@ -60,3 +61,19 @@ spec:
   stripPrefix:
     prefixes:
       - /api
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+
+metadata:
+  name: oyster-api-headers
+  labels:
+    app: oyster
+    component: api
+
+spec:
+  headers:
+    customResponseHeaders:
+      X-Service: oyster-api
