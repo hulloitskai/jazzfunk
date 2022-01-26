@@ -49,7 +49,7 @@ spec:
               memory: 1500Mi
       initContainers:
         - name: migrator
-          image: tugolo/oyster-migrator:0.1.46 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
+          image: tugolo/oyster-migrator:0.1.47 # {"$imagepolicy": "flux-system:bedda-travel-oyster-migrator"}
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
