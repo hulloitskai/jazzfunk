@@ -20,7 +20,7 @@ spec:
         - name: docker-tugolo
       containers:
         - name: server
-          image: tugolo/oyster-web:0.1.49 # {"$imagepolicy": "flux-system:bedda-travel-oyster-web"}
+          image: tugolo/oyster-web:0.1.50 # {"$imagepolicy": "flux-system:bedda-travel-oyster-web"}
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
